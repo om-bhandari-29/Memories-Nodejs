@@ -1,0 +1,42 @@
+extends base
+
+block content
+  section#main_section.container-fluid
+    .inner
+      //- first box
+      if(allPosts.length == 0)
+        h2 No Posts to Display           
+      else 
+        each post in allPosts
+          .con.container.shadow.border.border-dark
+            a(href="google.com")#anchorDecoration
+              section.picture(style=`background: url(data:${post.image.contentType};base64,${post.image.data.toString('base64')});`)
+                h5= `${post.imageName}`
+                //- p 6 months
+              section.rounded-3.container
+                h6= `Uploaded By, ${post.uploadedBy}`
+                //- h4.place_name= `${post.imageName}`
+                h6.desc= `${post.imageDescription}`
+
+    //- search
+    .container.search
+      .form.border.border-dark.shadow
+        form(action='')
+          input(type='text', name='', placeholder='Search Memories', id='')
+          input(type='text', name='', placeholder='Search Tags', id='')
+          input.btn-search.btn.btn-primary(type='submit', value='SEARCH')
+
+      if !user
+        .border.border-dark.shadow.text_style
+          h6 Please Sign in to create your own Memories and like others Memories.
+      else 
+        br
+        //- Upload Post
+        .form.border.border-dark.shadow
+          //- form(method="POST", action='/upload' enctype='multipart/form-data')
+          form
+            input(type='file', name='image', id='image', accept='image/*', required)
+            input(type='text', name='imageName', placeholder='Image Name', id='imageName' required)
+            input(type='text', name='imageDescription', placeholder='Image Description', id='imageDescription' required)
+            input#uploadImageBtn.btn-search.btn.btn-primary(type='submit', value='UPLOAD')
+

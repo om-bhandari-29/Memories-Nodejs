@@ -1,0 +1,20 @@
+extends base
+
+block content
+    body
+    .main_section
+      .signin.border.border-dark.shadow
+        img(src='/images/lock.png', width='80', height='40', alt='')
+        h4  LOG INTO YOUR ACCOUNT
+        //- form#loginForm.form(action='/api/auth/login' method='post')
+        form#loginForm.form
+          input#email.in(type='email', placeholder='Email*', required='', name='email')
+          br
+          input#password.in(type='password', placeholder='password*', required='', name='password')
+          br
+          //- button#loginbtn.in.btn.btn-primary(type='submit') Log In 
+          input#loginbtn.in.btn.btn-primary(type='button', value='Log In')
+          input#googleSignUp.in.btn.btn-primary(type='button', value=' Sign in with Google')
+        p.para
+          | Don&apos;t have an account 
+          a(href='/signup') Click here
