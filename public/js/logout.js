@@ -1,7 +1,7 @@
 //logging out
 const logout = async() =>{
     try{
-        const res = await fetch('/api/auth/logout').then((res) => {
+        const res = await fetch('http://127.0.0.1:5000/api/auth/logout').then((res) => {
             return res.json();
         });
 

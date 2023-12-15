@@ -1,7 +1,7 @@
 const uploadImage = async(formData) =>{
 
     try{
-        const res = await fetch('/upload', {
+        const res = await fetch('http://127.0.0.1:5000/upload', {
             method: 'POST',
             body: formData
         }).then((res)=> res.json())
