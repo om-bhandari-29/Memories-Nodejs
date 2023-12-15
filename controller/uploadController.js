@@ -2,6 +2,7 @@ const multer = require('multer');
 const Posts = require('./../model/imageModel.js');
 const jwt = require('jsonwebtoken');
 const User = require('./../model/userModel.js');
+const sharp = require('sharp');
 
 
 const multerStorage = multer.memoryStorage();
@@ -73,4 +74,20 @@ exports.getUser = async (req, res, next) => {
     // console.log(currentUser);
 
     next();
+}
+
+exports.resizeImage = async (req, res, next) => {
+  const bufferedImage = req.file.buffer;
+  await sharp(bufferedImage).resize(280, 175, {
+    fit: "outside",
+    background: {
+      r: 217,
+      b: 216,
+      g: 215
+    }
+  }).toBuffer().then(image => {
+    req.file.buffer = image;
+  })
+
+  next();
 }
