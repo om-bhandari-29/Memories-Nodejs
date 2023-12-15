@@ -8,15 +8,15 @@ const uploadImage = async(formData) =>{
 
         if(res.status === 'success'){
             alert("success")
-            // location.assign('/');
             location.reload(true);
         }
-        else{
-            alert("Something went wrong");
+        else if(res.status === 'Only image'){
+            alert("Only image file is allowed")
+            location.reload(true);
         }
     }
     catch(err){
-        // console.log(err);
+        alert(err);
         console.log("Error Occured : "+err);
     }
 }
