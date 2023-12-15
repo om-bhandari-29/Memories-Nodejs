@@ -35,7 +35,7 @@ mongoose.connect(db, {
 //middleware
 app.use(express.json()); //to parse json from body (body parser) and to tell node js that we are using data in json format
 app.use(helmet());
-app.use(morgan("common"));  //to display request details (like type of request i.e. get, post, put, etc), time taken to process that request, etc to the console
+// app.use(morgan("common"));  //to display request details (like type of request i.e. get, post, put, etc), time taken to process that request, etc to the console
 
 
 //user defined
