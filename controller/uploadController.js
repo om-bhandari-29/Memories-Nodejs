@@ -77,17 +77,32 @@ exports.getUser = async (req, res, next) => {
 }
 
 exports.resizeImage = async (req, res, next) => {
-  const bufferedImage = req.file.buffer;
-  await sharp(bufferedImage).resize(280, 175, {
-    fit: "outside",
-    background: {
-      r: 217,
-      b: 216,
-      g: 215
-    }
-  }).toBuffer().then(image => {
-    req.file.buffer = image;
-  })
+  try{
+      if(req.imageError === "only Image"){
+        throw new Error("Only image")
+      }
+
+      const bufferedImage = req.file.buffer;
+      await sharp(bufferedImage).resize(280, 175, {
+        fit: "outside",
+        background: {
+          r: 217,
+          b: 216,
+          g: 215
+        }
+      }).toBuffer().then(image => {
+        req.file.buffer = image;
+      })
+  }
+  catch(error){
+      var err = "";
+      if(error.message === 'Only image')
+        err = error.message;
+
+      return res.status(500).json({
+        status: err
+      });
+  }
 
   next();
 }
