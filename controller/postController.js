@@ -1,7 +1,7 @@
 const multer = require('multer');
-const Posts = require('./../model/imageModel.js');
+const Posts = require('../model/imageModel.js');
 const jwt = require('jsonwebtoken');
-const User = require('./../model/userModel.js');
+const User = require('../model/userModel.js');
 const sharp = require('sharp');
 
 

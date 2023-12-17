@@ -31,13 +31,9 @@ block content
       .image_side
         div
           img(src=`data:${post.image.contentType};base64,${post.image.data.toString('base64')}`, alt='')
-          //- p= `${post.uploadedByUserId}`
-          //- p= `${user._id}`
           if user
             //- if user._id === post.uploadedByUserId
             if user._id.equals(post.uploadedByUserId)
               input(type="button", value="Delete Post").btn-search.btn.btn-primary
-            //- else
-            //-   p Hello
       // image side end
           

@@ -42,7 +42,7 @@ app.use(morgan("common"));  //to display request details (like type of request i
 // const userRoute = require("./routes/userRoutes.js");
 const authRoutes = require("./routes/authRoutes.js");
 const viewRoutes = require("./routes/viewRoutes.js");
-const uploadRoutes = require('./routes/uploadRoutes.js');
+const postRoutes = require('./routes/postRoutes.js');
 // const userRoutes = require('./routes/userRoutes.js');
 
 //userdefined
@@ -50,5 +50,5 @@ const uploadRoutes = require('./routes/uploadRoutes.js');
 app.use("/", viewRoutes);
 
 app.use("/api/auth", authRoutes);
-app.use("/upload",uploadRoutes);
+app.use("/upload",postRoutes);
 
