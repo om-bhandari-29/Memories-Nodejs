@@ -1,0 +1,43 @@
+extends base
+
+block content
+    .detail_main.rounded.shadow.p-3.mb-5.bg-body.rounded
+      .contend
+        p.detail_head= `${post.imageName}`
+        //- p.hash #lake #waterfall #water #jabalpur #khadari lake #khadari
+        p= `${post.imageDescription}`
+        p
+          strong  Created by 
+          |  : #{post.uploadedBy}
+        //- strong Created by: `${post.imageName }`
+        p 7 months
+        hr
+        h6 real time chat-coming soon!
+        hr
+        .comment_main
+          //- .comment_display
+            p
+              strong underfined 
+              |  great place
+            p
+              strong underfined 
+              |  nice place
+          .take_comment
+            p Write a comment(Comming Soon)
+            form(action='')
+              textarea#text_in(name='comment', placeholder='Comment', cols='', rows='4')
+              //- button.btn-primary(type='submit') COMMENT
+      // image side start
+      .image_side
+        div
+          img(src=`data:${post.image.contentType};base64,${post.image.data.toString('base64')}`, alt='')
+          //- p= `${post.uploadedByUserId}`
+          //- p= `${user._id}`
+          if user
+            //- if user._id === post.uploadedByUserId
+            if user._id.equals(post.uploadedByUserId)
+              input(type="button", value="Delete Post").btn-search.btn.btn-primary
+            //- else
+            //-   p Hello
+      // image side end
+          
