@@ -43,10 +43,12 @@ app.use(morgan("common"));  //to display request details (like type of request i
 const authRoutes = require("./routes/authRoutes.js");
 const viewRoutes = require("./routes/viewRoutes.js");
 const uploadRoutes = require('./routes/uploadRoutes.js');
+// const userRoutes = require('./routes/userRoutes.js');
 
 //userdefined
 // app.use("/api/users", userRoute);
-app.use("/api/auth", authRoutes);
 app.use("/", viewRoutes);
+
+app.use("/api/auth", authRoutes);
 app.use("/upload",uploadRoutes);
 

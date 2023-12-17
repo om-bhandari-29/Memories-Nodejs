@@ -1,4 +1,5 @@
 const Posts = require('./../model/imageModel.js');
+const uploadController = require('./../controller/uploadController.js');
 
 exports.index = async(req, res, next)=>{
     const post = await Posts.find();
@@ -18,5 +19,16 @@ exports.login = async (req, res, next)=>{
 exports.signup = async(req, res, next)=>{
     res.status(200).render('signup', {
         title: 'Sign Up'
+    });
+};
+
+exports.myUploads = async(req, res, next)=>{
+    const currentUser =  req.currentUserId;
+    // console.log(currentUser);
+    const post = await Posts.find({uploadedByUserId:currentUser._id});
+
+    res.status(200).render('myUploads', {
+        title: 'My Uploads',
+        posts: post
     });
 };

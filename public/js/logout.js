@@ -7,11 +7,12 @@ const logout = async() =>{
 
         if(res.status === 'success'){
             alert("Logged Out Successfully");
-            location.reload(true);
+            // location.reload(true); //error while logging out from myUploads page
+            location.assign('/');
         }
     }
     catch(err){
-        console.log(err);
+        console.log("inside logout.js : "+err);
     }
 }
 

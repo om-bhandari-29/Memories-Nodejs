@@ -9,7 +9,7 @@ block content
       else 
         each post in allPosts
           .con.container.shadow.border.border-dark
-            a(href="google.com")#anchorDecoration
+            a(href=`${post._id}`)#anchorDecoration
               section.picture(style=`background: url(data:${post.image.contentType};base64,${post.image.data.toString('base64')});`)
                 h5= `${post.imageName}`
                 //- p 6 months
@@ -28,7 +28,7 @@ block content
 
       if !user
         .border.border-dark.shadow.text_style
-          h6 Please Sign in to create your own Memories and like others Memories.
+          h6 Please Sign in to create your own Memories just like others Memories.
       else 
         br
         //- Upload Post
@@ -39,4 +39,8 @@ block content
             input(type='text', name='imageName', placeholder='Image Name', id='imageName' required)
             input(type='text', name='imageDescription', placeholder='Image Description', id='imageDescription' required)
             input#uploadImageBtn.btn-search.btn.btn-primary(type='submit', value='UPLOAD')
+
+        br
+        a(href="myUploads").btn-search.btn.btn-primary My Uploads
+        //- input.btn-search.btn.btn-primary(type='button', value='My Uploads')
 
