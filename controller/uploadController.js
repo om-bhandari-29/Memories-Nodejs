@@ -84,7 +84,7 @@ exports.resizeImage = async (req, res, next) => {
 
       const bufferedImage = req.file.buffer;
       await sharp(bufferedImage).resize(280, 175, {
-        fit: "outside",
+        fit: "contain",
         background: {
           r: 217,
           b: 216,
