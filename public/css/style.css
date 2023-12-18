@@ -28,8 +28,6 @@ body {
 
 .inner div {
   margin: 1%;
-
-
 }
 
 .inner {
@@ -47,10 +45,11 @@ body {
 .place_name {
   margin: 15px;
   margin-top: 30px;
+  /* font-weight: bolder; */
 }
 
 .desc {
-  margin-left: 14px;
+  margin-left: 0px;
   margin-top: 18%;
   color: rgb(145, 144, 144);
 }
@@ -66,7 +65,7 @@ body {
 }
 
 .picture {
-  background: url(/img/download.jfif);
+  /* background: url(/img/download.jfif); */
   height: 35%;
   color: white;
   padding: 20px;
@@ -259,6 +258,7 @@ width: 80%;
     width: 100%;
   }
 }
+
 #anchorDecoration{
   text-decoration: none;
 }
