@@ -5,10 +5,12 @@ exports.index = async(req, res) => {
     try{
         if(req.query.searchPost){
             post = await Posts.find({imageName: { $regex: req.query.searchPost, $options: 'i'}});
+            // post = await Posts.find({imageName: { $regex: req.query.searchPost, $options: 'i'}}).sort({_id: -1});
             //regex and options is used for case insensitive query
         }
         else{
             post = await Posts.find();
+            // post = await Posts.find().sort({_id: -1});
         }
 
         res.status(200).render('index', {
