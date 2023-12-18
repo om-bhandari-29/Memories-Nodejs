@@ -50,5 +50,6 @@ const postRoutes = require('./routes/postRoutes.js');
 app.use("/", viewRoutes);
 
 app.use("/api/auth", authRoutes);
-app.use("/upload",postRoutes);
+// app.use("/upload",postRoutes);
+app.use("/post",postRoutes);
 

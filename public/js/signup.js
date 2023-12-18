@@ -31,25 +31,31 @@ const signup = async(name, email, password) =>{
     }
 }
 
-document.getElementById('signupbtn').addEventListener('click', e => {
-    e.preventDefault();
-    const fname = document.getElementById('fname').value;
-    const lname = document.getElementById('lname').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const confirmpassword = document.getElementById('confirmpassword').value;
+const signupClick = document.getElementById('signupbtn');
 
-    if(!fname || !lname || !email || !password || !confirmpassword){
-        alert("Enter full Details");
-        location.assign('/signup');
-    }
+if(signupClick)
+{
+    // document.getElementById('signupbtn').addEventListener('click', e => {
+        signupClick.addEventListener('click', e => {
+        e.preventDefault();
+        const fname = document.getElementById('fname').value;
+        const lname = document.getElementById('lname').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmpassword = document.getElementById('confirmpassword').value;
 
-    if(password != confirmpassword){
-        alert("Password Doesn't match");
-        location.assign('/signup');
-    }
-    else{
-        const name = fname +" "+lname;
-        signup(name, email, password);
-    }
-})
+        if(!fname || !lname || !email || !password || !confirmpassword){
+            alert("Enter full Details");
+            location.assign('/signup');
+        }
+
+        if(password != confirmpassword){
+            alert("Password Doesn't match");
+            location.assign('/signup');
+        }
+        else{
+            const name = fname +" "+lname;
+            signup(name, email, password);
+        }
+    })
+}

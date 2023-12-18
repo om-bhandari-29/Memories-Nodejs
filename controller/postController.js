@@ -106,3 +106,31 @@ exports.resizeImage = async (req, res, next) => {
 
   next();
 }
+
+exports.deletePost = async (req, res) => {
+  const postId = req.params.postId;
+  
+  try{
+    //findByIdAndDelete(), this function returns the deleted post
+    const deletePost = await Posts.findByIdAndDelete(postId);
+    if(!deletePost){
+      throw new Error("Error in deleting Post");
+    }
+
+    res.status(200).json({
+      status: 'success',
+      message: 'successfully deleted post with given Id'
+    })
+  }
+  catch(err){
+    // console.log("Postcontroller file : "+err);
+    res.status(500).json({
+      status: "Error",
+      message: "Error while deleting post",
+      Error: {
+        err
+      }
+    })
+  }
+
+}

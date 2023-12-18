@@ -34,6 +34,8 @@ block content
           if user
             //- if user._id === post.uploadedByUserId
             if user._id.equals(post.uploadedByUserId)
-              input(type="button", value="Delete Post").btn-search.btn.btn-primary
+              p=`${post._id}`
+              button(data-postId=`${post._id}`)#postDeleteButton.btn-search.btn.btn-primary Delete
+
       // image side end
           

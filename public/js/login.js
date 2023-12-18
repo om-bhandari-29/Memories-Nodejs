@@ -31,19 +31,23 @@ const login = async(email, password) =>{
     }
 }
 
-document.getElementById('loginbtn').addEventListener('click', e=>{
-    e.preventDefault();
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    if(email == "" || password == ""){
-        alert("Enter Your Credentials");
-    }
-    else{
-        // console.log(email, password);
-        login(email, password);
-    }
-})
+const loginClick = document.getElementById('loginbtn');
+if(loginClick)
+{
+    loginClick.addEventListener('click', e=>{
+        e.preventDefault();
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+    
+        if(email == "" || password == ""){
+            alert("Enter Your Credentials");
+        }
+        else{
+            // console.log(email, password);
+            login(email, password);
+        }
+    })
+}
 
 
 
