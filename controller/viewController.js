@@ -4,13 +4,14 @@ exports.index = async(req, res) => {
     let post;
     try{
         if(req.query.searchPost){
-            post = await Posts.find({imageName: { $regex: req.query.searchPost, $options: 'i'}});
-            // post = await Posts.find({imageName: { $regex: req.query.searchPost, $options: 'i'}}).sort({_id: -1});
+            // post = await Posts.find({imageName: { $regex: req.query.searchPost, $options: 'i'}});
+            post = await Posts.find({imageName: { $regex: req.query.searchPost, $options: 'i'}}).sort({_id: '-1'});
             //regex and options is used for case insensitive query
+            //sort by id -1,  means lates uploaded document will be shown first
         }
         else{
-            post = await Posts.find();
-            // post = await Posts.find().sort({_id: -1});
+            // post = await Posts.find();
+            post = await Posts.find().sort({_id: '-1'});
         }
 
         res.status(200).render('index', {
@@ -42,7 +43,7 @@ exports.myUploads = async(req, res)=>{
     try{
         const currentUser =  req.currentUserId;
         // console.log(currentUser);
-        const post = await Posts.find({uploadedByUserId:currentUser._id});
+        const post = await Posts.find({uploadedByUserId:currentUser._id}).sort({_id: '-1'});
 
         res.status(200).render('myUploads', {
             title: 'My Uploads',
