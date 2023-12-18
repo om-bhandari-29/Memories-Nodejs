@@ -1,0 +1,13 @@
+//- Navbar
+nav.rounded.shadow.p-3.mb-5.bg-body.rounded.navbar.navbar-light.bg-light.nav1
+  .container-fluid
+    a.navbar-brand(href='/')
+      img.d-inline-block.align-text-top(src='/images/memoriesText.png' alt='' width='200' height='24')
+      img.d-inline-block.align-text-top(src='/images/memoriesLogo.png' alt='' width='30' height='24')
+      //- b.memo_font MEMORIES
+
+    if user
+      h3= `Welcome ${user.name}`
+      a#logOutBtn.btn.btn-primary Log Out
+    else 
+      a.btn.btn-primary(href='/login' role='button') Login

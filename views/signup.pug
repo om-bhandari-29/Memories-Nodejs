@@ -1,0 +1,22 @@
+extends base
+
+block content
+    .main_section
+      .signup.border.border-dark.shadow
+        img(src='/images/lock.png', width='80', height='40', alt='')
+        h3 Sign Up
+        form(action='')
+          input#fname(type='text', placeholder='first name*', required='')
+          input#lname(type='text', placeholder='last name*', required='')
+          br
+          input#email.in(type='email', placeholder='Email*', required='')
+          br
+          input#password.in(type='password', placeholder='password*', required='')
+          br
+          input#confirmpassword.in(type='password', placeholder='Reapeat password*', required='')
+          br
+          input#signupbtn.in.btn.btn-primary(type='button', value='Sign Up')
+          input.in.btn.btn-primary(type='button', value='Google sign up')
+        p.para
+          | Already have an account 
+          a(href='/login') Click here
