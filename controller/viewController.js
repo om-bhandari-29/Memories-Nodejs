@@ -1,7 +1,7 @@
 const Posts = require('./../model/imageModel.js');
 
 exports.index = async(req, res) => {
-    let post;
+    let post, withDuration;
     try{
         if(req.query.searchPost){
             // post = await Posts.find({imageName: { $regex: req.query.searchPost, $options: 'i'}});
@@ -12,14 +12,20 @@ exports.index = async(req, res) => {
         else{
             // post = await Posts.find();
             post = await Posts.find().sort({_id: '-1'});
+            // withDuration = post.map(file => ({
+            //     ...file,
+            //     timeStamp: "hour"
+            // }));
         }
 
         res.status(200).render('index', {
             title: 'Home', 
             allPosts: post
+            // allPosts: withDuration
         });
     }
     catch(err){
+        console.log(err);
         res.status(400).json({
             status: "Error Occured",
             message: "Error at viewController.js, index function"
