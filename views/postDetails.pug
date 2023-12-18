@@ -33,9 +33,11 @@ block content
           img(src=`data:${post.image.contentType};base64,${post.image.data.toString('base64')}`, alt='')
           if user
             //- if user._id === post.uploadedByUserId
-            if user._id.equals(post.uploadedByUserId)
-              p=`${post._id}`
-              button(data-postId=`${post._id}`)#postDeleteButton.btn-search.btn.btn-primary Delete
+            - const userId = user._id
+            if userId.equals(post.uploadedByUserId)
+              //- p=`${post._id}`
+              button(data-postid=`${post._id}`)#postDeleteButton.btn-search.btn.btn-primary Delete
+              //- button(data-post-id=`${post._id}`)#postDeleteButton.btn-search.btn.btn-primary Delete
 
       // image side end
           
