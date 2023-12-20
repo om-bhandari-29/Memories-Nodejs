@@ -14,7 +14,7 @@ block content
               section.picture(style=`background: url(data:${post.image.contentType};base64,${post.image.data.toString('base64')});`)
                 h5= `${post.imageName}`
                 //- p 6 months
-                p= `${post.timeStamp}`
+                //- p= `${post.timeStamp}`
               section.rounded-3.container
                 h6= `Uploaded By, ${post.uploadedBy}`
                 //- h4.place_name= `${post.imageName}`
