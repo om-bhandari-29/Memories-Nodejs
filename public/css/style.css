@@ -35,6 +35,7 @@ body {
   flex-wrap: wrap;
   width: 76%;
   /* border: 1px black solid; */
+  /* justify-content: center; */
 }
 
 .tagss {

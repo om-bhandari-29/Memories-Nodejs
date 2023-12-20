@@ -2,18 +2,26 @@ extends base
 
 block content
     section#main_section.container-fluid
-    .inner
-      //- first box
-      if(posts.length == 0)
-        h2 No Posts to Display           
-      else 
-        each post in posts
-          .con.container.shadow.border.border-dark
-            a(href=`${post._id}`)#anchorDecoration
-              section.picture(style=`background: url(data:${post.image.contentType};base64,${post.image.data.toString('base64')});`)
-                h5= `${post.imageName}`
-                //- p 6 months
-              section.rounded-3.container
-                h6= `Uploaded By, ${post.uploadedBy}`
-                //- h4.place_name= `${post.imageName}`
-                h6.desc= `${post.imageDescription}`
+      .inner
+        //- first box
+        if(posts.length == 0)
+          h2 No Posts to Display           
+        else 
+          each post in posts
+            .con.container.shadow.border.border-dark
+              a(href=`${post._id}`)#anchorDecoration
+                section.picture(style=`background: url(data:${post.image.contentType};base64,${post.image.data.toString('base64')});`)
+                  h5= `${post.imageName}`
+                  //- p 6 months
+                section.rounded-3.container
+                  h6= `Uploaded By, ${post.uploadedBy}`
+                  //- h4.place_name= `${post.imageName}`
+                  h6.desc= `${post.imageDescription}`
+      .container.search
+            .form.border.border-dark.shadow
+              //- form(method="POST", action='/upload' enctype='multipart/form-data')
+              form
+                input(type='file', name='image', id='image', accept='image/*', required)
+                input(type='text', name='imageName', placeholder='Image Name', id='imageName' required)
+                input(type='text', name='imageDescription', placeholder='Image Description', id='imageDescription' required)
+                input#uploadImageBtn.btn-search.btn.btn-primary(type='submit', value='UPLOAD')
