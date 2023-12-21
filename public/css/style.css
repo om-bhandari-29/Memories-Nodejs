@@ -263,3 +263,53 @@ width: 80%;
 #anchorDecoration{
   text-decoration: none;
 }
+
+
+/* main page responsive */
+
+@media screen and (max-width : 668px) {
+  #main_section {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .inner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .search {
+    width: 100%;
+    margin: 0%;
+  }
+
+  .text_style {
+    display: none;
+  }
+
+  .form {
+    padding: 0%;
+    margin: 0%;
+    display: flex;
+    flex-direction: row;
+  }
+  .form input{
+    width: 70%;
+  }
+  .form input[type = submit]{
+    width: 40%;
+  }
+ 
+}
+.search:first-child{
+  background-color: white;
+}
+
+.image_side div button{
+
+  width: 100%;
+  margin-top: 5px;
+}
